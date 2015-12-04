@@ -4,7 +4,27 @@
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://bootswatch.com/flatly/bootstrap.css">
-
+    <link rel="stylesheet" href="Donor_stylesheet.css">
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBN-oZ02e_ALV-IXBco-ikHyrloiA9pgA4&callback=map_init"></script>
+	<script type="text/javascript">
+		//javascript code for client side of the web app	
+		var map;
+		var map_init = $(function(){
+			map = new google.maps.Map(document.getElementById('map_container'), {
+				center: {lat: -34.397, lng: 150.644},
+    			zoom: 8
+			});
+		});
+    </script>
   </head>
+
+  <body>
+  	<div id="map_container"></div>
+  </body>
+
+</html>
