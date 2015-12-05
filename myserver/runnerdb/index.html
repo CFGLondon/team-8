@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Optional theme -->
+   	<!-- <link rel="stylesheet" href="https://bootswatch.com/flatly/bootstrap.css">-->
+    <link rel="stylesheet" href="Donor_stylesheet.css">
+    <link rel="stylesheet" href="lib/jquery-ui-1.11.4/jquery-ui.css">
+    <link rel="stylesheet" href="lib/jquery-ui-1.11.4/jquery-ui.theme.css">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <!-- Latest compiled and minified JavaScript 
+    
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.theme.css">
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+	<script src="lib/js/bootstrap.js"></script>
+	<script src="lib/jquery-2.1.4.js"></script>
+
+	<!--bootsrap cdn-->
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBN-oZ02e_ALV-IXBco-ikHyrloiA9pgA4&callback=initmap" async defer></script>
+	<script type="text/javascript">
+		//javascript code for client side of the web app
+		var map;
+		function initmap() {
+			map = new google.maps.Map(document.getElementById("map_container"), {
+				center: {lat: -34.397, lng: 150.644},
+				zoom: 8
+			});
+		}
+
+		$(function(){
+			var JSON_data;	
+			var onGetLocation = function(){
+				$.post("ec2-54-78-37-212.eu-west-1.compute.amazonaws.com:8000/runnerdb/get_location/", function(data){
+					JSON_data = data;
+				}).onAjaxSuccess(function(){
+					var num_runners = Object.keys(JSON_data).length;
+					for(var i = 0; i < num_runners; i++){
+						//var marker = new google.maps.Marker({
+						//				map: map,
+						//				position: {JSON_data[i].x, JSON_data[i].y},
+						//				title: ("Runner " + i.toString())
+						//			});
+						$("<p>Runner id: " + i.toString() + ", x: " + JSON_data[i].x + ", y: " + JSON_data[i].y).appendTo("#value");
+					}
+				});
+			}
+			setInterval(onGetLocation,2000);
+		});
+    </script>
+    <style type="text/css">
+  	.centred 
+  	{
+  		text-align:center;
+  	}
+  	
+  	.btn-xlarge 
+  	{
+    padding: 18px 28px;
+    font-size: 22px;
+    line-height: normal;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
+    }
+
+    html, body 
+    { 
+    	height: 100%; 
+    	margin: 0; 
+    	padding: 0;
+    }
+
+    #screen
+    {
+    	height: 100%;
+    }
+  	
+  	#map_container 
+  	{ 
+  		height: 100%; 
+  		width: 100%;
+  	}
+
+  	</style>
+
+  </head>
+
+  <body>
+  	<div class="container-fluid" id="screen">
+  		<div id="map_container"></div>
+  		<div class="row">
+	  		<div id="value"></div>
+  		</div>
+  		<div class="row">
+  			<div class="col-xs-6 col-xs-offset-3" id="value_slider"></div>
+  		</div>
+  		<div class="row">
+  			<div class="col-xs-6 col-xs-offset-3">
+  				<button type="button" class="btn btn-primary btn-lg">Donate!</button>
+  			</div>
+  		</div>
+  	</div>
+  </body>
+
+</html>
+
+
