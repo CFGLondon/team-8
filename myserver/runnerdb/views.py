@@ -13,10 +13,12 @@ def index(request):
    return render_to_response('index.html')
 
 def send_location(request):
+    print(Runners[0])
     id = request.GET['runner_id']
     x = request.GET['x']
     y = request.GET['y']
-    Runners[id] = [[x, y]]
+    Runners[int(id)] = [float(x), float(y)]
+    print(Runners[int(id)])
     return HttpResponse("Location sent")
 
 def get_location(request):
