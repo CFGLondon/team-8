@@ -1,5 +1,3 @@
 # team-8
 
-I contributed!!
-
-(Me too!)
+Live donations for Save The Children fund. 
