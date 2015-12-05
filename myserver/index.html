@@ -35,8 +35,6 @@
 		}
 
 		$(function(){
-			//the poll runner location code...
-
 			$('input').slider();
 			$('input').on("slide", function(){
 				var slider_value = $('input').getValue();
@@ -53,17 +51,17 @@
 					JSON_data = jQuery.parseJSON(data);
 					var num_runners = Object.keys(JSON_data).length;
 					for(var i = 0; i < num_runners; i++){
-						//var marker = new google.maps.Marker({
-						//				map: map,
-						//				position: {JSON_data[i][0], JSON_data[i][1]},
-						//				title: ("Runner " + i.toString())
-						//		});
-						//console.log("Runner id: " + i.toString() + ", x: " + JSON_data[i][0] + ", y: " + JSON_data[i][1]).appendTo("#value"));
-						alert("Runner id: " + i.toString() + ", x: " + JSON_data[i].x + ", y: " + JSON_data[i].y);
+						var marker = new google.maps.Marker({
+										map: map,
+										position: {JSON_data[i].y, JSON_data[i].x},
+										title: ("Runner " + i.toString())
+								});
+						console.log("Runner id: " + i.toString() + ", y: " + JSON_data[i].y + ", x: " + JSON_data[i].x);
+						//alert("Runner id: " + i.toString() + ", x: " + JSON_data[i].x + ", y: " + JSON_data[i].y);
 					}				
 				});
 			}
-			setInterval(onGetLocation,2000);
+			setInterval(onGetLocation,3000);
 
 			//the update runner donation state code...
 			$("#donate_button").click(function(){
