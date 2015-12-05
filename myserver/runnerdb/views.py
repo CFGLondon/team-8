@@ -1,14 +1,21 @@
 ﻿from django.shortcuts import render_to_response
 #from polls.models import Poll
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
+from django.shortcuts import render
+from django.template import RequestContext, loader
 
 from Data import Runners
 from twilio.rest import TwilioRestClient
+from django.shortcuts import render_to_response
+
+def index(request):
+   return render_to_response('index.html')
 
 
 def send_location(request):
     runner = json.loads(request.body)
     Runners[runner.id] = runner
+    return HttpResponse("Location sent")
 def get_location():
     return JsonResponse(Runners) 
 def send_donation(request):
@@ -24,3 +31,4 @@ def send_donation(request):
                                 from_="441163260756",
                                 url="https://demo.twilio.com/welcome/voice/")
     print(call.sid)
+    return HttpResponse("HI HENRY!")
