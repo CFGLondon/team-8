@@ -10,9 +10,11 @@ from django.shortcuts import render_to_response
 import json
 
 def index(request):
-   return render_to_response('index.html')
+    # load web app
+    return render_to_response('index.html')
 
 def send_location(request):
+    # httprequest should be via url of form /runnerdb/send_location/?runner_id=0&x=0&y=0
     print(Runners[0])
     id = request.GET['runner_id']
     x = request.GET['x']
@@ -22,12 +24,13 @@ def send_location(request):
     return HttpResponse("Location sent")
 
 def get_location(request):
+    # returns '{ id : [x,y] }'
     res = JsonResponse(Runners)
     return res.content
 
 def send_donation(request):
-    #This temporary idea demonstrates how to implement a vibration on a fitbit. The target phone is called, causing the fitbit
-    #to vibrate
+    # this is a workaround to simulate a notification on the fitbit
+    # we use Twilio to call a phone paired with the device which causes it to vibrate
     account = "ACe1eb373d270917b737deaedb1ecda797"
     token = "c4909e963577d964791ef521a1195fb1"
     print("Setting up client")
