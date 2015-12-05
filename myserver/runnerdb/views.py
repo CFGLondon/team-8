@@ -28,7 +28,7 @@ def get_location(request):
     vals = Runners.values()
     res = [dict(zip(['x','y'], pair)) for pair in vals]
     #vals = JsonResponse(Runners)
-    return JsonResponse(res,content_type="text/plain")
+    return JsonResponse(res, safe=False)
 
 def send_donation(request):
     # this is a workaround to simulate a notification on the fitbit
