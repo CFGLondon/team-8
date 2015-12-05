@@ -38,9 +38,10 @@
 		$(function(){
 			var JSON_data;	
 			var onGetLocation = function(){
-				$.post("ec2-54-78-37-212.eu-west-1.compute.amazonaws.com:8000/runnerdb/get_location/", function(data){
+				$.post("ec2-54-78-37-212.eu-west-1.compute.amazonaws.com:8000/runnerdb/get_location", function(data){
 					JSON_data = data;
-				}).onAjaxSuccess(function(){
+				});
+				$(document).onAjaxSuccess(function(){
 					var num_runners = Object.keys(JSON_data).length;
 					for(var i = 0; i < num_runners; i++){
 						//var marker = new google.maps.Marker({
@@ -49,10 +50,10 @@
 						//				title: ("Runner " + i.toString())
 						//			});
 						$("<p>Runner id: " + i.toString() + ", x: " + JSON_data[i].x + ", y: " + JSON_data[i].y).appendTo("#value");
-					}
-				});
+					}				});
 			}
 			setInterval(onGetLocation,2000);
+
 		});
     </script>
     <style type="text/css">
