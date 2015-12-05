@@ -44,13 +44,14 @@
 			});
 			
 			var JSON_data;	
-			var onGetLocation = function(){
+			/*var onGetLocation = function(){
 				$.ajax({
-					url: "http://ec2-54-78-37-212.eu-west-1.compute.amazonaws.com:8000/runnerdb/get_location/", 
+					url: "http://ec2-54-78-37-212.eu-west-1.compute.amazonaws.com:8000/runnerdb/get_location/",
 					context: document.body,
 					method: 'GET'
 				}).done(function(data){
 					JSON_data = jQuery.parseJSON(data);
+					console.log(JSON_data);
 					var num_runners = Object.keys(JSON_data).length;
 					for(var i = 0; i < num_runners; i++){
 						//var marker = new google.maps.Marker({
@@ -60,10 +61,10 @@
 						//		});
 						//console.log("Runner id: " + i.toString() + ", x: " + JSON_data[i][0] + ", y: " + JSON_data[i][1]).appendTo("#value"));
 						alert("Runner id: " + i.toString() + ", x: " + JSON_data[i].x + ", y: " + JSON_data[i].y);
-					}				
+					}
 				});
 			}
-			setInterval(onGetLocation,2000);
+			setInterval(onGetLocation,2000);*/
 
 			//the update runner donation state code...
 			$("#donate_button").click(function(){
