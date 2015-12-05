@@ -48,7 +48,7 @@
 				$.ajax({
 					url: "http://ec2-54-78-37-212.eu-west-1.compute.amazonaws.com:8000/runnerdb/get_location/", 
 					context: document.body,
-					method: 'POST'
+					method: 'GET'
 				}).done(function(data){
 					JSON_data = data;
 					var num_runners = Object.keys(JSON_data).length;
@@ -68,8 +68,7 @@
 			$("donate_button").click(function(){
 				$.ajax({
 					url: "http://ec2-54-78-37-212.eu-west-1.compute.amazonaws.com:8000/runnerdb/send_donation/",
-					context: document.body,
-					method: 'GET'
+					context: document.body
 				}).done({});
 			});
 		});
@@ -139,28 +138,15 @@
 
   	<div class="container-fluid" id="screen">
   		<div id="map_container"></div>
-  		<div class="row">
-	  		<div id="value"></div>
-  		</div>
-  		<div class="row">
-  			<div class="col-xs-6 col-xs-offset-3" id="value_slider"></div>
-  		</div>
-  		<div class="row">
-  			<div class="col-xs-6 col-xs-offset-3">
-  				<button type="button" class="btn btn-primary btn-lg" id="donate_button">Donate!</button>
-  			</div>
-  		</div>
+		<div class="slider_money">
+		   <label for="slider-0">Donation: </label>
+		   <input type="range" name="slider" id="slider-0" value="25" min="1" max="10"  />
+		</div>
 
-<div class="slider_money">
-   <label for="slider-0">Donation: </label>
-   <input type="range" name="slider" id="slider-0" value="25" min="1" max="10"  />
-</div>
-
-    <div class="centred">
-        <button id="donate_button" class="btn btn-xlarge btn-primary" type="button">Donate</button>
-  	</div>
-  </body>
-
+	    <div class="centred">
+	        <button id="donate_button" class="btn btn-xlarge btn-primary" type="button">Donate</button>
+	  	</div>
+	</body>
 </html>
 
 
