@@ -6,8 +6,6 @@
     <!-- Optional theme -->
    	<!-- <link rel="stylesheet" href="https://bootswatch.com/flatly/bootstrap.css">-->
     <link rel="stylesheet" href="Donor_stylesheet.css">
-    <link rel="stylesheet" href="lib/jquery-ui-1.11.4/jquery-ui.css">
-    <link rel="stylesheet" href="lib/jquery-ui-1.11.4/jquery-ui.theme.css">
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <!-- Latest compiled and minified JavaScript 
     
@@ -36,12 +34,16 @@
 		}
 
 		$(function(){
+			//the poll runner location code...
 			var JSON_data;	
 			var onGetLocation = function(){
-				$.post("ec2-54-78-37-212.eu-west-1.compute.amazonaws.com:8000/runnerdb/get_location", function(data){
+				$.ajax({
+					url: "ec2-54-78-37-212.eu-west-1.compute.amazonaws.com:8000/runnerdb/get_location", 
+					context: document.body,
+					method: 'POST',
+					crossDomain: true
+				}).done(function(data){
 					JSON_data = data;
-				});
-				$(document).onAjaxSuccess(function(){
 					var num_runners = Object.keys(JSON_data).length;
 					for(var i = 0; i < num_runners; i++){
 						//var marker = new google.maps.Marker({
@@ -50,10 +52,20 @@
 						//				title: ("Runner " + i.toString())
 						//			});
 						$("<p>Runner id: " + i.toString() + ", x: " + JSON_data[i].x + ", y: " + JSON_data[i].y).appendTo("#value");
-					}				});
+					}				
+				});
 			}
 			setInterval(onGetLocation,2000);
 
+			//the update runner donation state code...
+			$("donate_button").click(function(){
+				$.ajax({
+					url: "ec2-54-78-37-212.eu-west-1.compute.amazonaws.com:8000/runnerdb/send_donation",
+					context: document.body,
+					crossDomain: true,
+					method: 'GET'
+				}).done({});
+			});
 		});
     </script>
     <style type="text/css">
@@ -105,7 +117,7 @@
   		</div>
   		<div class="row">
   			<div class="col-xs-6 col-xs-offset-3">
-  				<button type="button" class="btn btn-primary btn-lg">Donate!</button>
+  				<button type="button" class="btn btn-primary btn-lg" id="donate_button">Donate!</button>
   			</div>
   		</div>
   	</div>
