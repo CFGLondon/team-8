@@ -11,13 +11,16 @@ from django.shortcuts import render_to_response
 def index(request):
    return render_to_response('index.html')
 
-
 def send_location(request):
     runner = json.loads(request.body)
     Runners[runner.id] = runner
+    print(runner.x)
+    print(runner.y)
     return HttpResponse("Location sent")
+
 def get_location():
-    return JsonResponse(Runners) 
+    return JsonResponse(Runners)
+
 def send_donation(request):
     #This temporary idea demonstrates how to implement a vibration on a fitbit. The target phone is called, causing the fitbit
     #to vibrate
