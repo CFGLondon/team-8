@@ -6,6 +6,10 @@
     <!-- Optional theme -->
    	<!-- <link rel="stylesheet" href="https://bootswatch.com/flatly/bootstrap.css">-->
     <link rel="stylesheet" href="Donor_stylesheet.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="bootstrap-slider-master/js/bootstrap-slider.js"></script>
+    <link rel="stylesheet" href="lib/jquery-ui-1.11.4/jquery-ui.css">
+    <link rel="stylesheet" href="lib/jquery-ui-1.11.4/jquery-ui.theme.css">
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <!-- Latest compiled and minified JavaScript 
     
@@ -16,7 +20,7 @@
 	<script src="lib/jquery-2.1.4.js"></script>
 
 	<!--bootsrap cdn-->
-	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	
 	<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -35,6 +39,9 @@
 
 		$(function(){
 			//the poll runner location code...
+
+			$('input').slider();
+
 			var JSON_data;	
 			var onGetLocation = function(){
 				$.ajax({
@@ -67,7 +74,9 @@
 				}).done({});
 			});
 		});
+
     </script>
+
     <style type="text/css">
   	.centred 
   	{
@@ -79,10 +88,21 @@
     padding: 18px 28px;
     font-size: 22px;
     line-height: normal;
+    color:white;
+    background: #EA000B;
     -webkit-border-radius: 8px;
        -moz-border-radius: 8px;
             border-radius: 8px;
     }
+
+    .container-fluid {
+    width: 100%;
+    min-height: 45%;
+    max-height: 50%;
+    float: center;
+    margin: 3px;
+    padding: 3px;
+}
 
     html, body 
     { 
@@ -102,11 +122,22 @@
   		width: 100%;
   	}
 
+    #ex6
+    {
+    	width: 100%;
+    }
+
+    .slider_money{
+    margin: 3px;
+    padding: 3px;  
+    }
+
   	</style>
 
   </head>
+  	
+    <body>
 
-  <body>
   	<div class="container-fluid" id="screen">
   		<div id="map_container"></div>
   		<div class="row">
@@ -120,6 +151,14 @@
   				<button type="button" class="btn btn-primary btn-lg" id="donate_button">Donate!</button>
   			</div>
   		</div>
+
+<div class="slider_money">
+   <label for="slider-0">Donation: </label>
+   <input type="range" name="slider" id="slider-0" value="25" min="1" max="10"  />
+</div>
+
+    <div class="centred">
+        <button id="donate_button" class="btn btn-xlarge btn-primary" type="button">Donate</button>
   	</div>
   </body>
 
