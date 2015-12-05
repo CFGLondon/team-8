@@ -38,7 +38,11 @@
 			//the poll runner location code...
 
 			$('input').slider();
-			var slider_value = $('input').
+			$('input').on("slide", function(){
+				var slider_value = $('input').getValue();
+				$("value").val("£ " + slider_value);	
+			});
+			
 			var JSON_data;	
 			var onGetLocation = function(){
 				$.ajax({
