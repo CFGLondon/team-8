@@ -66,8 +66,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/runnerdb/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.0549451">
-              <caret line="32" column="85" selection-start-line="32" selection-start-column="85" selection-end-line="32" selection-end-column="85" />
+            <state vertical-scroll-proportion="0.6593407">
+              <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -79,10 +79,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/myserver/settings.py" />
-        <option value="$PROJECT_DIR$/runnerdb/views.py" />
         <option value="$PROJECT_DIR$/runnerdb/Data.py" />
         <option value="$PROJECT_DIR$/runnerdb/urls.py" />
         <option value="$PROJECT_DIR$/runnerdb/models.py" />
+        <option value="$PROJECT_DIR$/runnerdb/views.py" />
       </list>
     </option>
   </component>
@@ -377,7 +377,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="7" />
+      <option name="time" value="8" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -578,8 +578,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/runnerdb/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0549451">
-          <caret line="32" column="85" selection-start-line="32" selection-start-column="85" selection-end-line="32" selection-end-column="85" />
+        <state vertical-scroll-proportion="0.6593407">
+          <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
           <folding />
         </state>
       </provider>
