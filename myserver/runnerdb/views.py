@@ -10,6 +10,7 @@ def index(request):
 def send_location(request):
     runner = json.loads(request.body)
     Runners[runner.id] = runner
+    return HttpResponse("Location sent")
 def get_location():
     return JsonResponse(Runners) 
 def send_donation(request):
@@ -25,3 +26,4 @@ def send_donation(request):
                                 from_="441163260756",
                                 url="https://demo.twilio.com/welcome/voice/")
     print(call.sid)
+    return HttpResponse("HI HENRY!")
