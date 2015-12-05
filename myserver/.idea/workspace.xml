@@ -47,7 +47,7 @@
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="43" column="58" selection-start-line="43" selection-start-column="58" selection-end-line="43" selection-end-column="58" />
+              <caret line="53" column="58" selection-start-line="53" selection-start-column="58" selection-end-line="53" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -66,8 +66,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/runnerdb/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.32860824">
-              <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.44458762">
+              <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -131,6 +131,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="myserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="runnerdb" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -270,7 +284,7 @@
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="58" selection-start-line="43" selection-start-column="58" selection-end-line="43" selection-end-column="58" />
+          <caret line="53" column="58" selection-start-line="53" selection-start-column="58" selection-end-line="53" selection-end-column="58" />
           <folding />
         </state>
       </provider>
@@ -303,8 +317,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/runnerdb/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32860824">
-          <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.44458762">
+          <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
           <folding />
         </state>
       </provider>

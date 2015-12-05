@@ -18,7 +18,7 @@ def send_location(request):
     print(runner.y)
     return HttpResponse("Location sent")
 
-def get_location():
+def get_location(request):
     return JsonResponse(Runners)
 
 def send_donation(request):
