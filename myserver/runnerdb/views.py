@@ -1,11 +1,12 @@
 ﻿from django.shortcuts import render_to_response
 #from polls.models import Poll
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 
 from Data import Runners
 from twilio.rest import TwilioRestClient
 
-
+def index(request):
+    return HttpResponse("No, YOU'RE a homepage.")
 def send_location(request):
     runner = json.loads(request.body)
     Runners[runner.id] = runner

@@ -1,4 +1,4 @@
-"""myserver URL Configuration
+﻿"""myserver URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.8/topics/http/urls/
@@ -16,4 +16,4 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
-urlpatterns = [url(r'^runner_id/', include('runnerdb.urls')), url(r'^admin/', admin.site.urls),]
+urlpatterns = [url(r'^runnerdb/', include('runnerdb.urls')), url(r'^admin/', admin.site.urls),]
