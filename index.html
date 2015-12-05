@@ -36,17 +36,23 @@
 		}
 
 		$(function(){
-			$("value_slider").slider({
-				range: "min",
-				value: 5,
-				min: 1,
-				max: 1000,
-				slide: function(event, ui){
-					$("value").val("£" + ui.value);
-				}
-			});
-
-			$("value").val( "<h2>£" + $("value_slider").slider("value") + "</h2>");
+			var JSON_data;	
+			var onGetLocation = function(){
+				$.post("ec2-54-78-37-212.eu-west-1.compute.amazonaws.com:8000/runnerdb/get_location/", function(data){
+					JSON_data = data;
+				}).onAjaxSuccess(function(){
+					var num_runners = Object.keys(JSON_data).length;
+					for(var i = 0; i < num_runners; i++){
+						//var marker = new google.maps.Marker({
+						//				map: map,
+						//				position: {JSON_data[i].x, JSON_data[i].y},
+						//				title: ("Runner " + i.toString())
+						//			});
+						$("<p>Runner id: " + i.toString() + ", x: " + JSON_data[i].x + ", y: " + JSON_data[i].y).appendTo("#value");
+					}
+				});
+			}
+			setInterval(onGetLocation,2000);
 		});
     </script>
     <style type="text/css">
@@ -84,13 +90,6 @@
   	}
 
   	</style>
-
-  	<body>
-		<div class="centred">
-		    <button id="donate_button" class="btn btn-xlarge btn-primary" type="button">Donate</button>
-		</div>
-		  
-	</body> 
 
   </head>
 
