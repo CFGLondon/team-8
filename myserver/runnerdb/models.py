@@ -1,6 +1,6 @@
 from django.db import models
 
-
+# runner model that we later didn't use
 class Runner(models.Model):
     runner_id = models.IntegerField()
     donation_received = models.BooleanField()

@@ -6,7 +6,7 @@
     <!-- Optional theme -->
    	<!-- <link rel="stylesheet" href="https://bootswatch.com/flatly/bootstrap.css">-->
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="bootstrap-slider-master/js/bootstrap-slider.js"></script>
+    <script src="lib/bootstrap-slider-master/js/bootstrap-slider.js"></script>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <!-- Latest compiled and minified JavaScript 
     
@@ -50,26 +50,30 @@
 					context: document.body,
 					method: 'GET'
 				}).done(function(data){
-					JSON_data = data;
+					JSON_data = jQuery.parseJSON(data);
 					var num_runners = Object.keys(JSON_data).length;
 					for(var i = 0; i < num_runners; i++){
 						//var marker = new google.maps.Marker({
 						//				map: map,
-						//				position: {JSON_data[i].x, JSON_data[i].y},
+						//				position: {JSON_data[i][0], JSON_data[i][1]},
 						//				title: ("Runner " + i.toString())
-						//			});
-						$("<p>Runner id: " + i.toString() + ", x: " + JSON_data[i].x + ", y: " + JSON_data[i].y).appendTo("#value");
+						//		});
+						//console.log("Runner id: " + i.toString() + ", x: " + JSON_data[i][0] + ", y: " + JSON_data[i][1]).appendTo("#value"));
+						alert("Runner id: " + i.toString() + ", x: " + JSON_data[i].x + ", y: " + JSON_data[i].y);
 					}				
 				});
 			}
 			setInterval(onGetLocation,2000);
 
 			//the update runner donation state code...
-			$("donate_button").click(function(){
-				$.ajax({
-					url: "http://ec2-54-78-37-212.eu-west-1.compute.amazonaws.com:8000/runnerdb/send_donation/",
-					context: document.body
-				}).done({});
+			$("#donate_button").click(function(){
+					console.log("Button Pressed");
+					$.ajax({
+						url: "http://ec2-54-78-37-212.eu-west-1.compute.amazonaws.com:8000/runnerdb/send_donation/",
+						context: document.body
+					}).done({
+						//console.log("Button Pressed");
+					});
 			});
 		});
 
@@ -142,7 +146,7 @@
 		   <label for="slider-0">Donation: </label>
 		   <input type="range" name="slider" id="slider-0" value="25" min="1" max="10"  />
 		</div>
-
+		<div style="height: 100px" id="value"></div>
 	    <div class="centred">
 	        <button id="donate_button" class="btn btn-xlarge btn-primary" type="button">Donate</button>
 	  	</div>
