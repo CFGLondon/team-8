@@ -4,20 +4,27 @@ from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render
 from django.template import RequestContext, loader
 
-from Data import Runners
+from runnerdb.Data import Runners
 from twilio.rest import TwilioRestClient
 from django.shortcuts import render_to_response
+import json
 
 def index(request):
    return render_to_response('index.html')
 
-
 def send_location(request):
-    runner = json.loads(request.body)
-    Runners[runner.id] = runner
+    print(Runners[0])
+    id = request.GET['runner_id']
+    x = request.GET['x']
+    y = request.GET['y']
+    Runners[int(id)] = [float(x), float(y)]
+    print(Runners[int(id)])
     return HttpResponse("Location sent")
-def get_location():
-    return JsonResponse(Runners) 
+
+def get_location(request):
+    res = JsonResponse(Runners)
+    return res.content
+
 def send_donation(request):
     #This temporary idea demonstrates how to implement a vibration on a fitbit. The target phone is called, causing the fitbit
     #to vibrate

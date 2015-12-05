@@ -6,7 +6,11 @@
     <!-- Optional theme -->
    	<!-- <link rel="stylesheet" href="https://bootswatch.com/flatly/bootstrap.css">-->
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<<<<<<< HEAD
     <script src="lib/bootstrap-slider-master/js/bootstrap-slider.js"></script>
+=======
+    <script src="bootstrap-slider-master/js/bootstrap-slider.js"></script>
+>>>>>>> c5855971bada89bd91a28655505f9a864a6015e5
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <!-- Latest compiled and minified JavaScript 
     
@@ -51,6 +55,7 @@
 					method: 'GET'
 				}).done(function(data){
 					JSON_data = jQuery.parseJSON(data);
+
 					var num_runners = Object.keys(JSON_data).length;
 					for(var i = 0; i < num_runners; i++){
 						//var marker = new google.maps.Marker({
@@ -76,7 +81,6 @@
 					});
 			});
 		});
-
     </script>
 
     <style type="text/css">
@@ -146,7 +150,11 @@
 		   <label for="slider-0">Donation: </label>
 		   <input type="range" name="slider" id="slider-0" value="25" min="1" max="10"  />
 		</div>
+<<<<<<< HEAD
 		<div style="height: 100px" id="value"></div>
+=======
+
+>>>>>>> c5855971bada89bd91a28655505f9a864a6015e5
 	    <div class="centred">
 	        <button id="donate_button" class="btn btn-xlarge btn-primary" type="button">Donate</button>
 	  	</div>
